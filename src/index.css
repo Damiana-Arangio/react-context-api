@@ -1,68 +1,304 @@
+/**********************
+    REGOLE GENERALI
+***********************/
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Stile testo generale */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 13px;
   line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  height: 100vh;
 }
+
+ul {
+  list-style-type: none;
+}
+
+
+/*************************** 
+    CLASSI RIUTILIZZABILI
+****************************/
+
+/** Contenitori */
+
+/* Contenitore pagina */
+.container-page {
+  max-width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Container left-right */
+.container-flex-left-right {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+/* Container left */
+.container-left {
+  flex-basis: 40%;
+}
+
+/* Container right */
+.container-right {
+  flex-basis: 60%;
+
+  /* Position */
+  position: relative;
+  /* Posizione relativa per freccia "torna indietro" */
+}
+
+/* Titolo Container right */
+.container-right h2 {
+  font-size: 4rem;
+  line-height: normal;
+  text-align: center;
+  color: #181818;
+}
+
+/* Testo Container right */
+.container-right p {
+  font-size: 2rem;
+  margin: 20px 10px;
+}
+
+
+/***********
+    HEADER
+************/
+header {
+  width: 100%;
+  height: 13vh;
+  margin: 0 auto;
+  background-color: rgb(0, 0, 0);
+}
+
+header nav {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+header nav ul {
+  height: 100%;
+
+  /* Flex */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+nav a {
+  font-size: 2rem;
+  text-decoration: none;
+  color: white;
+}
+
+nav a.active {
+  color: rgb(0, 0, 0);
+  background: rgba(250, 250, 250, 0.6);
+  padding: 8px 15px;
+}
+
+/***********
+    HOME
+************/
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 6rem;
+  margin: 50px;
+  text-align: center;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* Immagine */
+.img-promozionale {
+  width: 100%;
+}
+
+
+/***************
+    CHI SIAMO
+****************/
+
+/* Immagine */
+.img-question {
+  width: 60%;
+}
+
+
+/***************
+    PRODOTTI
+****************/
+
+/* Contenitore delle cards */
+.container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 40px;
+  padding-bottom: 100px;
+}
+
+/* Singola card */
+.card {
+  flex-basis: calc((100%/4) - 40px);
+  margin: 0 auto;
+  padding: 10px 10px 20px;
+}
+
+.card:hover {
+  transform: scale(1.3);
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: rgb(255, 255, 255);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* Contenitore immagine prodotti */
+.container-img-prodotto {
+  background-color: #ECECEC;
+}
+
+/* Immagine prodotti */
+.img-prodotto {
+  width: 90%;
+  height: 250px;
+  padding: 30px;
+}
+
+/* Titolo prodotti */
+.titolo-prodotto {
+  font-size: 1rem;
+  text-align: center;
+  margin: 10px 0px;
+  min-height: 35px;
+}
+
+/* Prezzo + Categoria prodotti */
+.description-card li {
+  text-align: start;
+}
+
+.prezzo {
+  color: rgb(251, 107, 5);
+  font-weight: bold;
+}
+
+/**********************
+    DETTAGLI PRODOTTO
+***********************/
+
+/* Link che porta alla pagina dettagli prodotto */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/** Sezione Loading */
+.container-loading {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+
+  /* Position */
+  position: relative;
+  /* Posizione relativo per scritta LOADING */
+}
+
+/* Cerchio Loading in caso di dati API non ricevuti */
+.cerchio-loading-rotante {
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  border: 5px dotted #dcdada;
+  border-top-color: rgb(251, 107, 5);
+  border-radius: 50%;
+
+  /* Animazione */
+  animation-name: ruotaInfinito;
+  /* Nome dell'animazione definita nei keyframes */
+  animation-duration: 2s;
+  /* Durata di un ciclo completo */
+  animation-iteration-count: infinite;
+  /* Numero di ripetizioni -> infinito */
+  animation-timing-function: linear;
+  /* Velocità costante (linear) durante la rotazione */
+}
+
+/* Definizione Animazione*/
+@keyframes ruotaInfinito {
+  from {
+    transform: rotate(0deg);
+    /* Stato iniziale: nessuna rotazione 0° */
   }
-  a:hover {
-    color: #747bff;
+
+  to {
+    transform: rotate(360deg);
+    /* Stato finale: rotazione completa 360° */
   }
-  button {
-    background-color: #f9f9f9;
-  }
+}
+
+/* Scritta Loaging centrata */
+.scritta-loading {
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  /* Position */
+  position: absolute;
+  /* Posizione dentro il cerchio */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/** Sezione Singolo Prodotto */
+.img-singolo-prodotto {
+  width: 280px;
+  height: 280px;
+  padding-right: 10px;
+}
+
+.description-singolo-prodotto {
+  padding-right: 60px;
+}
+
+/* Titolo Singolo Prodotto (Pagina DettagliProdotto) */
+.titolo-singolo-prodotto {
+  font-size: 2rem;
+  text-align: center;
+  margin: 10px 0px;
+  min-height: 35px;
+}
+
+/* li discendenti da description-singolo-prodotto tranne titolo */
+.description-singolo-prodotto li:not(.titolo-singolo-prodotto) {
+  text-align: start;
+  font-size: 1.3rem;
+}
+
+/* Categoria */
+.categoria-singolo-prodotto {
+  font-weight: bold;
+  padding-top: 30px;
+}
+
+/* Freccia */
+.fa-arrow-left {
+  font-size: 5rem;
+  padding: 20px 0px 70px;
+
+  /* Position */
+  position: absolute;
+  right: 50%;
 }

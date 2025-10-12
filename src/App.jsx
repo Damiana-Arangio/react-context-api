@@ -1,33 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";  // Libreria di routing
+import HomePage from './pages/HomePage';                          // Pagina home
+import ChiSiamoPage from './pages/ChiSiamoPage';                  // Pagina chi siamo
+import ProdottiPage from './pages/ProdottiPage';                  // Pagina prodotti
+import Layout from './layouts/Layout';                            // Pagina layout
+import DettagliProdottoPage from './pages/DettagliProdottoPage';  // Pagina dettagli prodotto
+import NotFoundPage from './pages/NotFoundPage';
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      {/*****************************
+            GESTIONE DELLE ROTTE
+      *******************************/}
+      <BrowserRouter>
+        <Routes>
+
+          {/* Rotta genitore - contenete il layout */}
+          <Route element={<Layout/>}>
+
+            {/* Rotte figlie - mostrate dentro <Outlet/> */}
+            <Route path = "/" element={<HomePage/>} />
+            <Route path = "/chi-siamo" element={<ChiSiamoPage/>} />
+            <Route path = "/prodotti">    {/* Rotta Padre Prodotto */}
+              <Route path = "" element={<ProdottiPage/>} />
+              <Route path = ":id" element={<DettagliProdottoPage/>} />
+            </Route>          
+          </Route>
+
+          <Route path="*" element={<NotFoundPage />} />    {/* Rotta 404 - per gestire percorsi inesistenti */}
+
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
