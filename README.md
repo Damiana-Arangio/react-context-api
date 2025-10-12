@@ -59,8 +59,16 @@ Valutare se può aver senso centralizzare i dati dei prodotti nel context e quin
 <br>
 <br>
 ![Schermata Singolo Prodotto](./public/screenshot-NotFound.png)
-
+<br>
+<br>
+<br>
 ## Anteprima React Context API
+![Schermata Modalità Budget disattivata](./public/screenshot-BudgetModeDisattivata.png)
+<br>
+<br>
+<br>
+## Anteprima React Context API
+![Schermata Modalità Budget disattivata](./public/screenshot-BudgetModeAttivata.png)
 
 ## Tecnologie utilizzate
 
