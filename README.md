@@ -1,16 +1,70 @@
-# React + Vite
+<h1 align="center"> React Context API </h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Oggi estendiamo il nostro mini e-commerce introducendo le Context API di React.
+Useremo un contesto per gestire una modalità budget, che permette all’utente di visualizzare solo i prodotti più economici.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Consegna
 
-## React Compiler
+MILESTONE 1
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Create un nuovo context chiamato BudgetContext
 
-## Expanding the ESLint configuration
+Deve contenere uno stato budgetMode di tipo booleano (true/false)
+Deve fornire anche la funzione per modificarlo (setBudgetMode)
+Wrappiamo l’intera applicazione con il BudgetProvider
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+MILESTONE 2
+
+Create un componente Navbar.jsx (se non lo avete già)
+
+Inseritelo in App.jsx (oppure nel vostro componente di layout se avete organizzato l’app in questo modo)
+All’interno della Navbar aggiungete un bottone “Modalità Budget” che attiva/disattiva budgetMode con un click
+Il bottone deve cambiare etichetta in base allo stato (Attiva Modalità Budget / Disattiva Modalità Budget)
+
+MILESTONE 3
+
+Modificate la pagina dei prodotti:
+
+Recuperate il valore budgetMode usando il context
+Se budgetMode === true, mostrate solo i prodotti con price <= 30
+Altrimenti, mostrare tutti i prodotti normalmente
+
+## Bonus
+Valutare se può aver senso centralizzare i dati dei prodotti nel context e quindi richiamarli da li, invece che da pagine e/o componenti
+
+
+## Anteprima React Router
+![Homepage](./public/screenshot-home.png)
+<br>
+<br>
+<br>
+![Chi Siamo](./public/screenshot-chisiamo.png)
+<br>
+<br>
+<br>
+![Prodotti](./public/screenshot-prodotti.png)
+
+![Prodotto Cliccabile](./public/screenshot-prodotto-cliccabile.png)
+<br>
+<br>
+<br>
+![Schermata Loading](./public/screenshot-loading.png)
+<br>
+<br>
+<br>
+![Schermata Singolo Prodotto](./public/screenshot-singolo-prodotto.png)
+<br>
+<br>
+<br>
+![Schermata Singolo Prodotto](./public/screenshot-NotFound.png)
+
+## Anteprima React Context API
+
+## Tecnologie utilizzate
+
+- React + Vite
+- React Router DOM
+- Axios
+
