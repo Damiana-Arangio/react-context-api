@@ -1,78 +1,73 @@
-<h1 align="center"> React Context API </h1>
+<p align="center">
+  <img src="./public/boolean-logo.png" alt="Boolean Logo" width="35">
+</p>
 
-Oggi estendiamo il nostro mini e-commerce introducendo le Context API di React.
-Useremo un contesto per gestire una modalità budget, che permette all’utente di visualizzare solo i prodotti più economici.
+<h1 align="center">React Context API</h1>
+
+Estensione del mini e-commerce sviluppato con React Router, che introduce l’utilizzo delle Context API di React per la gestione dello stato globale e il filtraggio dei prodotti in modalità budget.
 
 ---
 
-## Consegna
+## Collegamento al progetto base
 
-MILESTONE 1
+Questo progetto nasce come **estensione del mini e-commerce realizzato con React Router**.
 
-Create un nuovo context chiamato BudgetContext
+Repository di partenza:  
+https://github.com/Damiana-Arangio/react-router.git
 
-Deve contenere uno stato budgetMode di tipo booleano (true/false)
-Deve fornire anche la funzione per modificarlo (setBudgetMode)
-Wrappiamo l’intera applicazione con il BudgetProvider
+---
 
-MILESTONE 2
+## Obiettivo
 
-Create un componente Navbar.jsx (se non lo avete già)
+### Milestone 1 – Creazione del Context
 
-Inseritelo in App.jsx (oppure nel vostro componente di layout se avete organizzato l’app in questo modo)
-All’interno della Navbar aggiungete un bottone “Modalità Budget” che attiva/disattiva budgetMode con un click
-Il bottone deve cambiare etichetta in base allo stato (Attiva Modalità Budget / Disattiva Modalità Budget)
+- Creare un nuovo context denominato `BudgetContext`
+- Gestire uno stato globale `budgetMode` di tipo booleano
+- Esporre la funzione per aggiornare lo stato (`setBudgetMode`)
+- Wrappare l’intera applicazione tramite `BudgetProvider`
 
-MILESTONE 3
+---
 
-Modificate la pagina dei prodotti:
+### Milestone 2 – Integrazione nella Navbar
 
-Recuperate il valore budgetMode usando il context
-Se budgetMode === true, mostrate solo i prodotti con price <= 30
-Altrimenti, mostrare tutti i prodotti normalmente
+- Creare (o riutilizzare) il componente `Navbar`
+- Integrare la Navbar all’interno di `App.jsx` o del componente di layout
+- Inserire un bottone per attivare/disattivare la modalità budget
+- Aggiornare dinamicamente l’etichetta del bottone in base allo stato:
+  - *Attiva modalità budget*
+  - *Disattiva modalità budget*
+
+---
+
+### Milestone 3 – Filtraggio dei prodotti
+
+- Recuperare il valore di `budgetMode` tramite Context
+- Se `budgetMode === true`, mostrare solo i prodotti con `price <= 30`
+- In caso contrario, visualizzare l’intera lista dei prodotti
+
+---
 
 ## Bonus
-Valutare se può aver senso centralizzare i dati dei prodotti nel context e quindi richiamarli da li, invece che da pagine e/o componenti
 
+- Valutare la centralizzazione dei dati dei prodotti all’interno del Context
+- Riutilizzare i dati centralizzati nei componenti che ne hanno necessità
 
-## Anteprima React Router
-![Homepage](./public/screenshot-home.png)
-<br>
-<br>
-<br>
-![Chi Siamo](./public/screenshot-chisiamo.png)
-<br>
-<br>
-<br>
-![Prodotti](./public/screenshot-prodotti.png)
+---
 
-![Prodotto Cliccabile](./public/screenshot-prodotto-cliccabile.png)
-<br>
-<br>
-<br>
-![Schermata Loading](./public/screenshot-loading.png)
-<br>
-<br>
-<br>
-![Schermata Singolo Prodotto](./public/screenshot-singolo-prodotto.png)
-<br>
-<br>
-<br>
-![Schermata Singolo Prodotto](./public/screenshot-NotFound.png)
-<br>
-<br>
-<br>
-## Anteprima React Context API
-![Schermata Modalità Budget disattivata](./public/screenshot-BudgetModeDisattivata.png)
-<br>
-<br>
-<br>
-## Anteprima React Context API
-![Schermata Modalità Budget disattivata](./public/screenshot-BudgetModeAttivata.png)
+## Anteprima – React Context API (modalità budget)
+
+**Modalità budget disattivata**
+![Modalità Budget disattivata](./public/screenshot-BudgetModeDisattivata.png)
+
+**Modalità budget attivata**
+![Modalità Budget attivata](./public/screenshot-BudgetModeAttivata.png)
+
+---
 
 ## Tecnologie utilizzate
 
-- React + Vite
+- React
 - React Router DOM
+- JavaScript
 - Axios
-
+- CSS3

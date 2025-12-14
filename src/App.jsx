@@ -6,7 +6,7 @@ import ProdottiPage from './pages/ProdottiPage';                  // Import Pagi
 import Layout from './layouts/Layout';                            // Import Pagina layout
 import DettagliProdottoPage from './pages/DettagliProdottoPage';  // Import Pagina dettagli prodotto
 import NotFoundPage from './pages/NotFoundPage';                  // Import Pagina Not Found
-import { BudgetProvider } from './contexts/BudgetContext'             // Import Provider del contesto "BudgetContext"
+import { BudgetProvider } from './contexts/BudgetContext'         // Import Provider del contesto "BudgetContext"
 
 function App() {
 
